@@ -10,12 +10,13 @@
                 <div class="hint">单击上传</div>
               </div>
             </div>
-
             <span>大小:{{size_input}}</span>
           </div>
-
-          <div class="output-preview">
-            <img :src="remote" alt="" class="preview-image">
+          <div>
+            <div class="output-preview">
+              <img :src="remote" alt="" class="preview-image">
+            </div>
+            <span>大小:{{size_output}}</span>
           </div>
         </div>
         <div style="width: 100%;margin-top: 30px; text-align: center;">
@@ -58,6 +59,8 @@
           let that = this;
           reader.onloadend = function(e){
             that.preview = e.target.result;
+            that.remote = e.target.result;
+            that.size_output = '12KB'
             that.showMask = false;
           }
         }
