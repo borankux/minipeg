@@ -43,6 +43,8 @@ func compressImage (w http.ResponseWriter, r * http.Request) {
 	var img Image
 	_ = json.NewDecoder(r.Body).Decode(&img)
 	data := make(map[string]interface{})
+	data["a"] = "b"
+
 	response(w, r, 20000, "OK", Compress(img.Content))
 }
 
